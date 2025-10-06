@@ -1,12 +1,12 @@
-# Airflow
+# Project Airflow
 
-**Airflow** is a web-based, predictive air quality application leveraging high-resolution data from NASA’s **Tropospheric Emissions: Monitoring of Pollution (TEMPO)** mission. The app provides actionable, neighborhood-level, hourly air quality forecasts across North America.
+**Project Airflow** is a web-based, predictive air quality application leveraging high-resolution data from NASA’s **Tropospheric Emissions: Monitoring of Pollution (TEMPO)** mission. The app provides actionable, neighborhood-level, hourly air quality forecasts across North America.
 
 ---
 
 ## 🚀 Project Overview
 
-Airflow features a seamless, multi-persona user interface built around three core components:
+Project Airflow features a seamless, multi-persona user interface built around three core components:
 
 - **Dashboard:** A data-fused interface showing real-time and historical air quality.  
 - **Hourly Forecast Map:** Interactive map with a **"Time-Travel" slider** to visualize pollution plumes hour by hour.  
@@ -18,17 +18,17 @@ The **Data Integration Engine** is the core innovation, fusing TEMPO’s satelli
 
 ## 🎯 Challenge Addressed
 
-Airflow is the **first public-facing app** to:
+Project Airflow is and app that:
 
-- Deliver validated, neighborhood-level, hourly air quality predictions.  
-- Visualize pollution spread hour-by-hour using TEMPO’s geospatial advantage.  
-- Provide actionable insights for sensitive populations and outdoor enthusiasts to reduce pollutant exposure.
+- Delivers validated, neighborhood-level, hourly air quality predictions.  
+- Visualizes pollution spread hour-by-hour using TEMPO’s geospatial advantage.  
+- Provides actionable insights for sensitive populations and outdoor enthusiasts to reduce pollutant exposure.
 
 ---
 
 ## 💡 Why It Matters
 
-By translating complex, high-volume NASA data into simple advice, Airflow empowers users to:
+By translating complex, high-volume NASA data into simple advice, Project Airflow empowers users to:
 
 - Schedule outdoor activities safely.  
 - Reduce exposure to harmful pollutants for sensitive groups (e.g., children with asthma, elderly).  
@@ -74,8 +74,8 @@ PROJECT-AIRFLOW/
 
 ## 🔗 GitHub Repository
 
-[Airflow on GitHub](https://github.com/SSM2-9/PROJECT-AIRFLOW)
+[Project Airflow on GitHub](https://github.com/SSM2-9/PROJECT-AIRFLOW)
 
 ---
 
-*Airflow turns complex NASA data into actionable guidance, helping communities breathe easier and make smarter outdoor decisions.*
+*Project Airflow turns complex NASA data into actionable guidance, helping communities breathe easier and make smarter outdoor decisions.*
