@@ -1,15 +1,12 @@
-// Ensure you have this at the top of your Next.js page file
 "use client";
 
-// Imports from BOTH of your files
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from 'next/link';
-import styles from "./map.module.css"; // Make sure this CSS file path is correct
+import styles from "./map.module.css"; 
 
-// DYNAMIC IMPORT for the interactive Leaflet Map (from your logic file)
-// This is crucial for making the map work.
+// DYNAMIC IMPORT for the interactive Leaflet Map (from the logic file)
 const Map = dynamic(() => import('./components/Map'), {
   ssr: false,
   loading: () => <p>Loading map component...</p>
@@ -17,7 +14,7 @@ const Map = dynamic(() => import('./components/Map'), {
 
 // Let's call the final component MapPage
 const MapPage = () => {
-  // LOGIC: All the state management from your first file is now here
+  // LOGIC: All the state management from the first file is now here
   const [city, setCity] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -26,7 +23,7 @@ const MapPage = () => {
 
   const max_date = new Date().toISOString().split("T")[0];
 
-  // LOGIC: The data fetching function from your first file
+  // LOGIC: The data fetching function from the first file
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -48,12 +45,10 @@ const MapPage = () => {
       });
   };
 
-  // Here we start the JSX from your styled component
   return (
     <div className={styles.map}>
       {/* Header Navigation (from styled component) */}
       <div className={styles.headerNavigation}>
-        {/* ... your header code is fine, no changes needed here ... */}
          <div className={styles.mapContainer}>
           <div className={styles.content6}>
             <div className={styles.logo}>
@@ -106,9 +101,9 @@ const MapPage = () => {
                     </div>
 
                     {/* INTEGRATION: Adding the form here for data input */}
-                    <div className={styles.formContainer}> {/* You can add styling for this class */}
+                    <div className={styles.formContainer}>
                       <h3>Input Information Below</h3>
-                      <form onSubmit={handleSubmit} className={styles.dataForm}> {/* Add styling */}
+                      <form onSubmit={handleSubmit} className={styles.dataForm}>
                         <label>City:</label>
                         <input type="text" name="city" value={city} onChange={(e) => setCity(e.target.value)} required />
                         <label>Start Date:</label>
@@ -122,7 +117,7 @@ const MapPage = () => {
                     {/* Map & Sidebar */}
                     <div className={styles.mapAndData}>
                       {/* INTEGRATION: Replacing the static image with the dynamic map */}
-                      <div className={styles.mapWrap} style={{ display: 'block', height: '500px' }}> {/* Overriding display:none */}
+                      <div className={styles.mapWrap} style={{ display: 'block', height: '500px' }}>
                         {isLoading && <p>Loading NASA data, this may take a moment...</p>}
                         
                         {apiResponse && !apiResponse.error && apiResponse.length > 0 && (
@@ -144,9 +139,6 @@ const MapPage = () => {
                            <p>Please enter a city and date range to see the map.</p>
                         )}
                       </div>
-
-                      {/* Sidebar */}
-                      {/* NOTE: This sidebar is still STATIC. You'll need to update it with apiResponse data. */}
                       
                     </div>
                   </div>
