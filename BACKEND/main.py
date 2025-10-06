@@ -53,7 +53,7 @@ def get_tempo_data(city: str, str_date: str, end_date: str):
     datetime_start = str_date + " 00:00:00"
     datetime_end = end_date + " 23:59:59"
 
-    # FIX: Wrap the search call in a try/except block to catch the crash
+    # Wrap the search call in a try/except block to catch the crash
     try:
         POI_results = earthaccess.search_data(
             short_name=short_name,
