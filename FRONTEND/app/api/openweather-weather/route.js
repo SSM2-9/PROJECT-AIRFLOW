@@ -15,7 +15,7 @@ export async function GET(request) {
     return NextResponse.json({ error: 'API key is not configured on the server' }, { status: 500 });
   }
 
-  // CHANGED: This URL now points to the "Current Weather" endpoint.
+  // This URL now points to the "Current Weather" endpoint.
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
 
   try {
