@@ -1,16 +1,9 @@
 "use client";
-
-// Import the necessary hooks and components from React and Next.js.
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from 'next/link';
-
-// Import the CSS module for styling this component.
 import styles from './index.module.css';
 
-// --- HELPER FUNCTIONS for OpenWeatherMap API ---
-
-// This function takes the AQI number (1-5) from the API and returns a human-readable string.
 const getAqiText = (aqiIndex) => {
   switch (aqiIndex) {
     case 1: return "Good";
@@ -22,14 +15,12 @@ const getAqiText = (aqiIndex) => {
   }
 };
 
-// This function converts the API's 1-5 AQI into a 0-500 number to match your UI's progress bar.
 const convertAqiToScale = (aqiIndex) => {
   if (aqiIndex === null || aqiIndex === undefined) return "N/A";
   const scaleMap = { 1: 50, 2: 100, 3: 150, 4: 200, 5: 300 };
   return scaleMap[aqiIndex] || "N/A";
 };
 
-// This function provides a simple piece of advice based on the AQI number.
 const getAqiAdvice = (aqiIndex) => {
     switch (aqiIndex) {
         case 1: return "It's a great day for outdoor activities!";
@@ -41,7 +32,6 @@ const getAqiAdvice = (aqiIndex) => {
     }
 }
 
-// This is your main dashboard component.
 const Dashboard2 = () => {
   // --- STATE MANAGEMENT ---
   const [locationsData, setLocationsData] = useState([]);
@@ -69,7 +59,7 @@ const Dashboard2 = () => {
               const weatherRes = await fetch(`/api/openweather-weather?lat=${featuredCity.lat}&lon=${featuredCity.lon}`);
               if (!weatherRes.ok) throw new Error("Weather API request failed");
               const weatherJson = await weatherRes.json();
-              console.log("Weather Data Received:", weatherJson); // Check your console for this!
+              console.log("Weather Data Received:", weatherJson);
               
               // CHANGED: The new API data is the root object, not weatherJson.current
               setWeatherData(weatherJson); 
@@ -78,8 +68,6 @@ const Dashboard2 = () => {
               console.error("Failed to fetch weather data:", err);
           }
       }
-
-      // Fetch air pollution data (this part is unchanged)
       const promises = locations.map(async (location) => {
         try {
           const res = await fetch(`/api/openweathermap?lat=${location.lat}&lon=${location.lon}`);
@@ -265,8 +253,8 @@ const Dashboard2 = () => {
                             <Image src="/Icon.png" width={20} height={20} alt="Weather icon" />
                             <div className={styles.textPadding}>
                                 <div className={styles.number2}>
-                                    {/* CHANGED: Access temp via weatherData.main.temp */}
-                                    {weatherData?.main ? `${Math.round(weatherData.main.temp)}` : '--'}<sup>°</sup>c 
+                                    {/* Access temp via weatherData.main.temp */}
+                                    {weatherData?.main ? `${Math.round(weatherData.main.temp)}` : '--'}<sup>°</sup>C 
                                     {weatherData?.weather ? weatherData.weather[0].main : ''}
                                 </div>
                             </div>
@@ -281,18 +269,17 @@ const Dashboard2 = () => {
                     {/* Humidity */}
                     <div className={styles.windSpeed}>
                         <Image src="/droplets-03.png" width={20} height={20} alt="Humidity icon" />
-                        {/* CHANGED: Access humidity via weatherData.main.humidity */}
+                        {/* Access humidity via weatherData.main.humidity */}
                         <div className={styles.div}>{weatherData?.main ? `${weatherData.main.humidity}%` : '--'}</div>
                         <div className={styles.textPadding4}><div className={styles.div}>Humidity</div></div>
                     </div>
                     {/* Wind Speed */}
                     <div className={styles.windSpeed}>
                         <Image src="/Wind.png" width={20} height={20} alt="Wind icon" />
-                        {/* CHANGED: Access wind speed via weatherData.wind.speed */}
+                        {/*Access wind speed via weatherData.wind.speed */}
                         <div className={styles.div}>{weatherData?.wind ? `${(weatherData.wind.speed * 3.6).toFixed(1)} km/h` : '--'}</div>
                         <div className={styles.textPadding4}><div className={styles.div}>Wind speed</div></div>
                     </div>
-                    {/* REMOVED: UV Index section is gone as it's not provided by this API */}
                 </div>
             </div>
         </div>
