@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+earthaccess
+netCDF4
+numpy
+geopy
