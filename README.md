@@ -1,4 +1,4 @@
-# Airflow 🌬️
+# Airflow
 
 **Airflow** is a web-based, predictive air quality application leveraging high-resolution data from NASA’s **Tropospheric Emissions: Monitoring of Pollution (TEMPO)** mission. The app provides actionable, neighborhood-level, hourly air quality forecasts across North America.
 
