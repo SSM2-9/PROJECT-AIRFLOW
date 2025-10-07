@@ -1,7 +1,7 @@
 # Project Airflow
 
 **Project Airflow** is a web-based, predictive air quality application leveraging high-resolution data from NASA’s **Tropospheric Emissions: Monitoring of Pollution (TEMPO)** mission.  
-The app provides actionable, neighborhood-level, hourly air quality forecasts across North America.
+The app provides actionable, neighborhood-level, hourly-inspired air quality insights across North America.
 
 ---
 
@@ -9,11 +9,11 @@ The app provides actionable, neighborhood-level, hourly air quality forecasts ac
 
 Project Airflow features a seamless, multi-persona user interface built around three core components:
 
-- **Dashboard:** A data-fused interface showing real-time and historical air quality.  
-- **Hourly Forecast Map:** Interactive map with a **“Time-Travel” slider** to visualize pollution plumes hour by hour.  
-- **Health-First Alert System:** Sends actionable alerts, like *“Limit outdoor exertion at 4 PM,”* based on predictive modeling.
+- **Dashboard:** Shows real-time pollutant data from **OpenWeatherMap** and provides actionable guidance for sensitive populations.  
+- **Forecast Map:** Displays TEMPO satellite data for selected cities and date ranges. The map may take time to load and does not currently support hourly time-travel visualization.  
+- **Health-First Alert System (Planned):** Alerts are not currently implemented, but actionable guidance is displayed on the dashboard.
 
-The **Data Integration Engine** is the core innovation, fusing TEMPO’s satellite data (NO₂, O₃) with ground-based sensor readings and weather forecasts to provide validated, neighborhood-level predictions.
+The **Data Integration Engine** is the core innovation, fusing TEMPO satellite data (NO₂, O₃) with ground-based sensor readings and weather forecasts to provide validated neighborhood-level insights.
 
 ---
 
@@ -21,19 +21,19 @@ The **Data Integration Engine** is the core innovation, fusing TEMPO’s satelli
 
 Project Airflow is an app that:
 
-- Delivers validated, neighborhood-level, hourly air quality predictions.  
-- Visualizes pollution spread hour-by-hour using TEMPO’s geospatial advantage.  
-- Provides actionable insights for sensitive populations and outdoor enthusiasts to reduce pollutant exposure.
+- Provides neighborhood-level air quality insights using TEMPO and weather data.  
+- Visualizes pollutant spread through the map for selected cities and date ranges.  
+- Provides actionable guidance through the dashboard, helping sensitive populations and outdoor enthusiasts plan safer activities.
 
 ---
 
 ## 💡 Why It Matters
 
-By translating complex, high-volume NASA data into simple advice, Project Airflow empowers users to:
+By translating complex NASA data into clear advice, Project Airflow empowers users to:
 
 - Schedule outdoor activities safely.  
 - Reduce exposure to harmful pollutants for sensitive groups (e.g., children with asthma, elderly).  
-- Make informed public health decisions based on predictive, validated data.
+- Make informed public health decisions based on validated data.
 
 ---
 
@@ -42,8 +42,8 @@ By translating complex, high-volume NASA data into simple advice, Project Airflo
 - **Frontend:** Next.js (React), HTML, CSS, JavaScript  
 - **Backend:** FastAPI (Python)  
 - **Data Sources:**  
-  - [NASA TEMPO Mission](https://science.nasa.gov/mission/tempo/) — satellite data for air pollutant levels (NO₂, O₃).  
-  - [OpenWeatherMap API](https://openweathermap.org) — weather and atmospheric conditions for model validation.  
+  - [NASA TEMPO Mission](https://science.nasa.gov/mission/tempo/) — satellite data for air pollutant levels (NO₂, O₃)  
+  - [OpenWeatherMap API](https://openweathermap.org) — live pollutant levels for dashboard  
 - **Deployment:** GitHub (source)
 
 ---
@@ -58,18 +58,21 @@ PROJECT-AIRFLOW/
 ├─ data_cache/ # Cached data files (large files handled outside GitHub)
 └─ README.md # Project documentation
 
+
 ---
 
 ## 👩‍💻 Target Users
 
-- **Sarah Chen:** Parent of a child with asthma or respiratory sensitivities.  
-- **Marcus Jackson:** Outdoor enthusiast planning safe activities.  
-- **General Public:** Anyone interested in real-time, neighborhood-level air quality forecasts.
+- **Parents and caregivers** monitoring children with asthma or sensitivities  
+- **Outdoor enthusiasts** planning safe activities  
+- **General public** interested in neighborhood-level pollutant trends  
 
 ---
 
 ## 📈 Future Improvements
 
+- Add **time-travel slider** for hourly TEMPO forecasts.  
+- Implement **Health-First Alerts** for high-risk periods.  
 - Include predictive models for additional pollutants (PM2.5, CO).  
 - Add mobile app support for on-the-go alerts.  
 - Expand coverage beyond North America.  
@@ -82,9 +85,9 @@ PROJECT-AIRFLOW/
 
 Before running the project, make sure you have the following installed:
 
-- **Node.js & npm** — required for the frontend.  
+- **Node.js & npm** — required for the frontend  
   👉 [Download & Install Node.js](https://nodejs.org/)  
-- **Python 3** — required for the backend.  
+- **Python 3** — required for the backend  
   👉 [Download & Install Python](https://www.python.org/downloads/)  
 - **Git** *(optional, for cloning the repository)*  
   👉 [Install Git](https://git-scm.com/)
@@ -148,4 +151,5 @@ The app will still run using cached data in the `data_cache/` folder if you don�
 
 ---
 
-*Project Airflow turns complex NASA data into actionable guidance, helping communities breathe easier and make smarter outdoor decisions.*
+*Project Airflow translates NASA TEMPO data and OpenWeatherMap pollutant information into actionable public health insights, helping communities make safer outdoor decisions. Features like time-travel visualization and automated alerts are planned for future development.*
+
